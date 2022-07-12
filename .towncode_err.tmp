@@ -1,0 +1,21 @@
+usage:	bash extract_dialectlexicon.sh <towncode>
+
+CODE   PERSON TOWN-NAME             REGION    CNTRY NOTES
+----   ------ ----------            ------    ----- -----
+abc    0      ABERCRAVE             WALES     UK
+abd1   ABD1   ABERDEEN              SCOTLAND  UK    As Edinburgh.  Examples on web
+ccl1   CCL1   COUNTY_CLARE          IRELAND   UK    Examples on web
+cdf    0      CARDIFF               WALES     UK
+edi    0      EDINBURGH             SCOTLAND  UK
+gam    0      GENERAL_AMERICAN      W_N_US    US
+gau    0      GENERAL_AUSTRALIAN    GEN_AUS   AUS
+gnz    0      GENERAL_NEW_ZEALAND   GEN_N_Z   NZ
+lds    0      LEEDS                 N_ENG     UK
+lds1   LDS1   LEEDS                 N_ENG     UK    Variant with no h-dropping
+nyc    0      NEW_YORK              E_US      US    Treated as rhotic
+nyc1   NYC1   NEW_YORK              E_US      US    Non-rhotic variant
+rpx    0      RP                    S_ENG     UK
+sca    0      SOUTH_CAROLINA        S_US      US
+
+The above towns are supported
+

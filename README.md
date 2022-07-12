@@ -5,6 +5,10 @@ This repo contains scripts to extract dialect dictionaries from the UNISYN lexic
 
 See Documents/Documentation1_3.pdf for full details of UNISYN. 
 
+Requirements-
+
+pip3 install -r requirements.txt
+
 Usage-
 
 1. The steps to extract a dialect lexicon are all in extract_dialectlexicon.sh. 

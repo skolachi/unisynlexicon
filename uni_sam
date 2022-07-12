@@ -1,0 +1,249 @@
+#file of specifications for SAMPA mappings by town, at PHONE level
+#follows after map-unique
+#listed in similar order to documentation table
+#if a symbol is not used in a given accent, e.g. t^ in RP, no need to cancel the mapping as it shouldn't appear anyway
+#symbols used are from X-SAMPA, an extension of basic SAMPA ,see 
+#http://www.phon.ucl.ac.uk/home/sampa/ipasam-x.pdf
+#using \ notation rather than underscore for diacritics
+#mostly giving {ALL} defaults, but not for symbols which have a lot of variation in SAMPA correspondences
+
+
+#consonants
+    $sampa{p_p}{ALL} = 1;
+    $sampa{t_t}{ALL} = 1;
+    $sampa{?_?}{ALL} = 1;	#glottal stop
+    $sampa{t^_4}{ALL} = 1;	#tap
+    $sampa{k_k}{ALL} = 1;
+    $sampa{x_x}{ALL} = 1;
+    $sampa{b_b}{ALL} = 1;
+    $sampa{d_d}{ALL} = 1;
+    $sampa{g_g}{ALL} = 1;
+
+    $sampa{ch_tS}{ALL} = 1;
+    $sampa{jh_dZ}{ALL} = 1;
+
+    $sampa{s_s}{ALL} = 1;
+    $sampa{z_z}{ALL} = 1;
+    $sampa{sh_S}{ALL} = 1;
+    $sampa{zh_Z}{ALL} = 1;
+
+    $sampa{f_f}{ALL} = 1;
+    $sampa{v_v}{ALL} = 1;
+    $sampa{th_T}{ALL} = 1;
+    $sampa{dh_D}{ALL} = 1;
+    $sampa{h_h}{ALL} = 1;
+
+    $sampa{m_m}{ALL} = 1;
+    $sampa{m!_m=}{ALL} = 1;
+    $sampa{n_n}{ALL} = 1;
+    $sampa{n!_n=}{ALL} = 1;
+    $sampa{ng_N}{ALL} = 1;
+
+    $sampa{l_l}{ALL} = 1;
+    $sampa{l_5}{REG}{N_ENG} = 1;     #realised as darkish l in these areas
+    $sampa{l_5}{REG}{SCOTLAND} = 1;     #realised as darkish l in these areas
+    $sampa{l_5}{CNY}{AUS} = 1;     #realised as dark l in AUS
+    $sampa{l_5}{CNY}{NZ} = 1;      #realised as dark l in NZ
+    $sampa{lw_5}{ALL} = 1;
+    $sampa{ll_K}{ALL} = 1;
+    $sampa{l!_l=}{ALL} = 1;
+
+    $sampa{r_r\}{ALL} = 1;	
+    $sampa{y_j}{ALL} = 1;
+    $sampa{w_w}{ALL} = 1;
+
+    $sampa{hw_W}{ALL} = 1;
+
+
+#vowels
+    $sampa{e_E}{ALL} = 1;
+    $sampa{a_{}{ALL} = 1;
+    $sampa{a_a}{REG}{SCOTLAND} = 1;
+    $sampa{a_a}{REG}{WALES} = 1;
+    $sampa{a_a}{TWN}{COUNTY_CLARE} = 1;
+
+    $sampa{aa_a:}{CNY}{UK} = 1;
+    $sampa{aa_A:}{REG}{S_ENG} = 1;
+    $sampa{aa_a:}{CNY}{AUS} = 1;
+    $sampa{aa_a:}{CNY}{NZ} = 1;
+    $sampa{aa_A}{CNY}{US} = 1;
+    $sampa{aa_A@}{TWN}{NEW_YORK} = 1;
+
+    $sampa{ar_A`}{ALL} = 1;
+    $sampa{ar_a`}{REG}{SCOTLAND} = 1;
+    $sampa{ar_a:`}{REG}{IRELAND} = 1;
+    $sampa{ar_A@`}{TWN}{NEW_YORK} = 1;
+    $sampa{ar_A:}{REG}{S_US} = 1;
+
+    $sampa{eh_{_r}{CNY}{US} = 1;		#raised /ah/
+    $sampa{eh_E@}{TWN}{NEW_YORK} = 1;		#raised /ah/
+    $sampa{eh_{I}{REG}{S_US} = 1;		#raised /ah/
+
+    $sampa{oul_OU}{REG}{N_ENG} = 1;
+    $sampa{uul_Uu}{REG}{N_ENG} = 1;
+    $sampa{oul_OU}{CNY}{AUS} = 1;
+    $sampa{oul_OU}{CNY}{NZ} = 1;
+    $sampa{uul_Uu}{CNY}{AUS} = 1;
+    $sampa{uul_u:}{CNY}{NZ} = 1;
+
+    $sampa{ou_o:}{CNY}{UK} = 1; 
+    $sampa{ou_@U}{REG}{S_ENG} = 1; 
+    $sampa{ou_7u}{TWN}{CARDIFF} = 1; 
+    $sampa{ou_VU}{CNY}{AUS} = 1; 
+    $sampa{ou_VU}{CNY}{NZ} = 1; 
+    $sampa{ou_ou}{CNY}{US} = 1; 
+    $sampa{ou_oU}{REG}{S_US} = 1; 
+
+    $sampa{ouw_ou}{ALL} = 1; 
+    $sampa{o_Q}{ALL} = 1; 
+    $sampa{o_O}{REG}{SCOTLAND} = 1;  
+    $sampa{o_A}{REG}{IRELAND} = 1;  
+    $sampa{o_A}{CNY}{US} = 1;  
+
+    $sampa{oo_O:}{ALL} = 1;
+    $sampa{oo_O}{REG}{SCOTLAND} = 1;
+    $sampa{oo_Q:}{TWN}{ABERCRAVE} = 1;
+    $sampa{oo_O}{CNY}{US} = 1;
+    $sampa{oo_O@}{TWN}{NEW_YORK} = 1;
+    $sampa{oo_QU}{REG}{S_US} = 1;  
+
+    $sampa{or_O`}{ALL} = 1;	#rhotic diacritic `
+    $sampa{or_O:`}{REG}{IRELAND} = 1;
+    $sampa{or_O@`}{TWN}{NEW_YORK} = 1;
+    $sampa{our_o`}{ALL} = 1;
+    $sampa{our_o:`}{REG}{IRELAND} = 1;
+    $sampa{our_o@}{REG}{S_US} = 1;
+
+
+    $sampa{ii_i:}{ALL} = 1;
+    $sampa{ii_i}{REG}{SCOTLAND} = 1;
+    $sampa{ii;_i:}{REG}{SCOTLAND} = 1;
+    $sampa{ii_Ii:}{CNY}{AUS} = 1;
+    $sampa{ii_i}{CNY}{US} = 1;
+
+    $sampa{iy_i}{ALL} = 1;  
+    $sampa{iy_I}{REG}{N_ENG} = 1;
+    $sampa{ie_i}{ALL} = 1;
+    $sampa{i_I}{ALL} = 1;
+
+    $sampa{@_@}{ALL} = 1;  
+    $sampa{@_V}{TWN}{ABERCRAVE} = 1;  
+    $sampa{@r_@`}{ALL} = 1;  
+
+    $sampa{uh_V}{ALL} = 1;
+    $sampa{u_U}{ALL} = 1;
+    $sampa{u_7}{TWN}{CARDIFF} = 1;
+    $sampa{uu_u:}{ALL} = 1;
+    $sampa{uu_SCOTSU}{REG}{SCOTLAND} = 1;	#TRANSLATE TO SAMPA } LATER
+    $sampa{uu;_SCOTSU:}{REG}{SCOTLAND} = 1;	#TRANSLATE TO SAMPA } LATER
+    $sampa{uu_USCOTSU}{CNY}{AUS} = 1;
+    $sampa{uu_SCOTSU:}{CNY}{NZ} = 1;
+    $sampa{uu_u}{CNY}{US} = 1;
+
+    $sampa{uw_u}{ALL} = 1;
+
+    $sampa{iu_Iu}{ALL} = 1;
+
+    $sampa{ei_e}{ALL} = 1;  
+    $sampa{ei_EI}{REG}{S_ENG} = 1;  
+    $sampa{ei_e:}{REG}{N_ENG} = 1;
+    $sampa{ei_ei}{REG}{WALES} = 1;  
+    $sampa{ei_e:}{REG}{IRELAND} = 1;  
+    $sampa{ei_Vi}{CNY}{AUS} = 1;  
+    $sampa{ei_Vi}{CNY}{NZ} = 1;  
+    $sampa{ei_eI}{TWN}{NEW_YORK} = 1;  
+    $sampa{ei_eI}{REG}{S_US} = 1;  
+
+    $sampa{ee_e:}{ALL} = 1;  
+
+    $sampa{ai_aI}{ALL} = 1;  
+    $sampa{ai_aE}{REG}{N_ENG} = 1;
+    $sampa{ai_QI}{CNY}{AUS} = 1;
+    $sampa{ai_AI}{CNY}{NZ} = 1;
+    $sampa{ai_Vi}{REG}{SCOTLAND} = 1;
+    $sampa{ai_ai}{TWN}{ABERCRAVE} = 1;
+    $sampa{ai_@i}{TWN}{CARDIFF} = 1;
+    $sampa{ae_ae}{ALL} = 1;  
+
+    $sampa{aai_A:I}{ALL} = 1;  
+
+    $sampa{aer_{`}{REG}{SCOTLAND} = 1;  
+    $sampa{aer_aI`}{REG}{IRELAND} = 1;  
+    $sampa{aer_aI`}{CNY}{US} = 1;  
+    $sampa{aer_AI@}{REG}{S_US} = 1;  
+
+    $sampa{owr_VU`}{REG}{SCOTLAND} = 1;  
+    $sampa{owr_aU`}{REG}{IRELAND} = 1;  
+    $sampa{owr_aU`}{CNY}{US} = 1;  
+
+    $sampa{oow_A:U}{ALL} = 1;  
+
+    $sampa{oi_OI}{ALL} = 1;  
+    $sampa{oi_Oi}{TWN}{CARDIFF} = 1;  
+    $sampa{oi_QI}{TWN}{ABERCRAVE} = 1;
+    $sampa{oir_OI`}{ALL} = 1;
+
+    $sampa{ow_aU}{ALL} = 1;
+    $sampa{ow_VU}{REG}{SCOTLAND} = 1;
+    $sampa{ow_@u}{TWN}{CARDIFF} = 1;
+    $sampa{ow_au}{TWN}{ABERCRAVE} = 1;
+    $sampa{ow_{o}{CNY}{AUS} = 1;
+    $sampa{ow_{U}{CNY}{NZ} = 1;
+    $sampa{ow_{U}{REG}{S_US} = 1;
+
+    $sampa{owR_aU`}{ALL} = 1;
+    $sampa{owR_VU`}{REG}{SCOTLAND} = 1;
+
+    $sampa{ir_I`}{CNY}{US} = 1;
+    $sampa{ir_i`}{REG}{SCOTLAND} = 1;
+    $sampa{ir_i`}{REG}{IRELAND} = 1;
+    $sampa{ir_i}{REG}{WALES} = 1;
+    $sampa{i@_I@}{REG}{S_ENG} = 1;
+    $sampa{ir_i}{REG}{N_ENG} = 1;	
+    $sampa{ir_I:}{CNY}{AUS} = 1;		#check
+    $sampa{ir_i:`}{CNY}{NZ} = 1;		#check
+    $sampa{ir;_i:`}{REG}{SCOTLAND} = 1;
+
+    $sampa{iir_I@}{ALL} = 1;
+
+    $sampa{@@r_3:}{ALL} = 1;
+    $sampa{@@r_3`}{REG}{SCOTLAND} = 1;
+    $sampa{@@r_3:`}{REG}{IRELAND} = 1;
+    $sampa{@@r_2:}{TWN}{CARDIFF} = 1;
+    $sampa{@@r_9:}{CNY}{NZ} = 1;
+    $sampa{@@r_3`}{CNY}{US} = 1;
+    $sampa{@@r_3}{REG}{S_US} = 1;
+    $sampa{@@r_3}{PER}{NYC1} = 1;
+
+    $sampa{er_E`}{ALL} = 1;
+
+#no default for this keysymbol
+    $sampa{eir_E@}{REG}{S_ENG} = 1;
+    $sampa{eir_E:}{REG}{N_ENG} = 1;
+    $sampa{eir_e`}{REG}{SCOTLAND} = 1;
+    $sampa{eir_E:}{REG}{WALES} = 1;
+    $sampa{eir_e:`}{REG}{IRELAND} = 1;
+    $sampa{eir_E:}{CNY}{AUS} = 1;
+    $sampa{eir_e@}{CNY}{NZ} = 1;
+    $sampa{eir_E`}{CNY}{US} = 1;
+    $sampa{eir_E@`}{TWN}{NEW_YORK} = 1;
+    $sampa{eir_E@}{PER}{NYC1} = 1;
+    $sampa{eir_E@}{REG}{S_US} = 1;
+
+    $sampa{ur_U@}{CNY}{UK} = 1;
+    $sampa{ur_SCOTSU`}{REG}{SCOTLAND} = 1;
+    $sampa{ur_u:`}{REG}{IRELAND} = 1;
+    $sampa{ur_u:}{CNY}{AUS} = 1;
+    $sampa{ur_u:}{CNY}{NZ} = 1;
+    $sampa{ur_U`}{CNY}{US} = 1;
+    $sampa{ur_U@`}{TWN}{NEW_YORK} = 1;
+    $sampa{ur_U@}{PER}{NYC1} = 1;
+    $sampa{ur_U@}{REG}{S_US} = 1;
+
+    $sampa{ur;_SCOTSU:`}{ALL} = 1;
+
+    $sampa{iur_Iu}{ALL} = 1;	#check
+
+
+
+

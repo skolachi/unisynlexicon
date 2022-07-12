@@ -1,0 +1,645 @@
+#Contains scores for conversions and rules in post-lex-rules
+#Contains scores for mappings in map-unique
+#Defined by town, region, country (use e.g. {CNY}{US})
+#Can also be defined by person (use PER{TOWNCODE}, e.g. PER{ABD1})
+#Do *not* use PER{0} for setting scores! (this is an empty carrier used for all town defaults) (error trapping should complain about this)
+#Only use person level for within-speaker variation in a town
+#Can use {ALL} to reset defaults, e.g. to make a rule apply to most accents
+
+------------------------------------
+#set convert_segment applications
+#nb all should result in a positive score
+#default is 1, unlike rules where default is 0
+
+-----------------------
+#FOR /II2/
+#better converted than treated as basic keysymbol since it can be 
+#vowel or consonant, which confuses some rules
+#1(default) is /ii/
+    $convertorder{aa} = conv_ii2;
+
+    $convert{conv_ii2}{REG}{SCOTLAND} = 2; # y
+    $convert{conv_ii2}{TWN}{CARDIFF} = 2; # y
+    $convert{conv_ii2}{CNY}{US} = 2;       # y
+    $convert{conv_ii2}{CNY}{AUS} = 2;       # y
+    $convert{conv_ii2}{CNY}{NZ} = 2;       # y
+
+-----------------------
+#FOR /[y]/
+#converted to null in some accents where we might expect y according to conv_basic, e.g. Ireland
+#1(default) is leave alone to be dealt with by conv_basic (must precede conv_basic)
+    $convertorder{ab} = conv_y;
+
+    $convert{conv_y}{REG}{IRELAND} = 2; # null
+
+-----------------------
+#BASIC TYPES
+#based on us and uk pronunciations
+#1(default) for uk-types
+#see also do_syllab for syllabic consonants
+    $convertorder{b} = conv_basic;
+
+    $convert{conv_basic}{REG}{IRELAND} = 2; # like US in syllabics (c.f. 
+                                          # fullfinal5)
+                                          # maybe I should call that e.g. y2?
+    $convert{conv_basic}{REG}{WALES} = 2; # like US in syllabics (c.f. 
+                                          # fullfinal5)
+#new
+    $convert{conv_basic}{CNY}{AUS} = 2; # like US in syllabics (c.f. 
+#new
+    $convert{conv_basic}{CNY}{NZ} = 2; # like US in syllabics (c.f. 
+    $convert{conv_basic}{CNY}{US} = 5;      # set US to 5 to allow for subtypes 
+                                          # of UK
+
+-----------------------
+#AH2 
+#default is convert to /ah/
+    $convertorder{c} = conv_ah2;
+
+    $convert{conv_ah2}{CNY}{AUS} = 2;	#convert to /a/
+
+-----------------------
+#FULL FINAL VOWELS
+#for vowels in caps with 5 appended:
+#1(default) is schwa
+#some in [] convert to syllabics - these determined by score of conv_basic as 2 or 5
+#welsh conversion done first, so this takes precedence over conv_basic score
+
+#ALSO:
+#for vowels in caps and brackets with [ 50] appended, e.g. 'level'
+#1(default) is deletion (resulting in syllabic); 2 has full vowels
+
+#ALSO:
+#for vowels in caps with 05 appended, e.g. 'fastest'
+#1(default) is /i/; score of 2 has full vowels
+
+    $convertorder{e} = conv_fullfinal5;
+
+    $convert{conv_fullfinal5}{REG}{WALES} = 2;    # full vowels
+    $convert{conv_fullfinal5}{CNY}{AUS} = 3;    # schwa
+    $convert{conv_fullfinal5}{CNY}{NZ} = 3;    # schwa
+
+-----------------------
+#IU DIPHTHONGS
+#1 (default) is to change iu3 to uu (iu done as mapping)
+#default applies to NYC as well as elsewhere
+    $convertorder{l} = conv_iu;
+
+    $convert{conv_iu}{REG}{WALES} = 2;		  #change iu3 to iu, retain iu
+
+-----------------------
+#FULL INITIAL VOWELS
+#for full vowels in prefixes etc., marked as caps4.  E0 included here too
+#1(default) is i for E0, schwa for others
+    $convertorder{n} = conv_fullinit4;
+
+    $convert{conv_fullinit4}{REG}{N_ENG} = 2;     # full vowels
+    $convert{conv_fullinit4}{CNY}{AUS} = 3;     # schwa for all
+    $convert{conv_fullinit4}{CNY}{NZ} = 3;     # schwa for all
+
+-----------------------
+#FOR I/@
+#the following few conversions are for variations of i/@ in 
+#I2, I6, I7; 1 for /i/, 2 for /@/
+#/i/ and /@/ not distinct in NZ - can leave them all as default
+
+#I2
+#1(default) is /i/
+    $convertorder{r} = conv_i_schwa_2;
+
+    $convert{conv_i_schwa_2}{REG}{E_US} = 2;     # @
+    $convert{conv_i_schwa_2}{REG}{W_N_US} = 2;   # @
+    $convert{conv_i_schwa_2}{CNY}{AUS} = 2;   # @
+    $convert{conv_i_schwa_2}{CNY}{NZ} = 2;   # @
+
+#I6 @ except for welsh and sc only
+#1(default) is /@/
+    $convertorder{s} = conv_i_schwa_6;
+
+    $convert{conv_i_schwa_6}{REG}{S_US} = 2;   # i
+    $convert{conv_i_schwa_6}{REG}{WALES} = 2;   # i
+
+#I7
+#1(default) is /i/
+    $convertorder{t} = conv_i_schwa_7;
+
+    $convert{conv_i_schwa_7}{REG}{IRELAND} = 2;   # @
+    $convert{conv_i_schwa_7}{REG}{W_N_US} = 2;   # @
+    $convert{conv_i_schwa_7}{CNY}{AUS} = 2;   # @
+    $convert{conv_i_schwa_7}{CNY}{NZ} = 2;   # @
+
+-----------------------
+#LONGSCHWA VARIANTS
+#for various oddities, mostly foreign words, e.g. deux, goethe
+#basic rule is that all those with score 1 (converting to @@r) are non-rhotic, 
+#though not all with score 2 are rhotic (not strict correspondence, though)
+    $convertorder{v} = conv_longschwa;
+
+    $convert{conv_longschwa}{REG}{SCOTLAND} = 2;
+    $convert{conv_longschwa}{REG}{IRELAND} = 2;
+    $convert{conv_longschwa}{CNY}{US} = 2;
+
+-----------------------
+#LL
+#in non-welsh english, ll is |l| initially, |th l| medially
+#1 default is convert
+    $convertorder{x} = conv_ll;
+
+    $convert{conv_ll}{REG}{WALES} = 2;      #do nothing
+
+------------------------------------------------
+# new zealand mergers
+#1 default is don't merge
+    $convertorder{z} = conv_eir_ir;
+
+    $convert{conv_eir_ir}{CNY}{NZ} = 2;      #merge near(ing) == square
+
+------------------------------------------------
+
+#set rule applications
+#any rulescore will be 0 by default, i.e. doesn't apply
+#if score set to > 1, rule applies
+#to cancel application, e.g. UK is non-rhotic, Scotland isn't, reset to 0
+#CNY overruled by REG which is overruled by TWN
+# $ruleorder{xyz} is used for ordering the rules
+
+
+-----------------------
+# H-DROPPING
+# could leave as keysymbol, but needed here for other rule input
+# should precede do_t_r rule, and do_short_ii
+
+    $ruleorder{ab} = do_h_drop;	
+
+    $rules{do_h_drop}{REG}{N_ENG} = 1;	     # h -> 0
+    $rules{do_h_drop}{REG}{WALES} = 1;     # h -> 0
+    $rules{do_h_drop}{CNY}{AUS} = 1;     # h -> 0
+    $rules{do_h_drop}{CNY}{NZ} = 1;     # h -> 0
+
+    $rules{do_h_drop}{PER}{LDS1} = 0;
+-----------------------
+# UR -> OR
+#some accents are merging ur with or in some environments, so that poor rhymes with war (and generally with law, too)
+#precedes non-rhotic rule
+    $ruleorder{ah} = do_ur_or;
+
+    $rules{do_ur_or}{REG}{GEN_AUS} = 1;      #merges /ur/ and /or/ of 'north'
+    $rules{do_ur_or}{REG}{S_US} = 2;        #merges /ur/ and /our/ of 'force'
+
+-----------------------
+# UR, IR BREAKING
+#some accents use a disyllabic sequence in monosyllables
+#precedes non_rhotic
+    $ruleorder{ak} = do_ur_ir;
+
+    $rules{do_ur_ir}{TWN}{LEEDS} = 1;     #these use monopthong in VrV, 
+                                          #diphthong elsewhere     
+    $rules{do_ur_ir}{CNY}{NZ} = 1;     
+    $rules{do_ur_ir}{REG}{WALES} = 2;	  #as 1, except that /ir/ in 
+	                                  #monosyllabic roots generally == /y @@r/
+    $rules{do_ur_ir}{REG}{GEN_AUS} = 3;   #applies to ir only.  different 
+	                                  #diphthongs finally and 
+	                                  #pre-consonantally
+    $rules{do_ur_ir}{REG}{S_US} = 4;   #ir before r+v is ii
+
+-----------------------
+# INITIAL /Y/ INSERTION
+# Welsh
+# should follow h-dropping, for simple rule formulation
+# should follow do_ur_ir
+
+    $ruleorder{al} = do_y_insert;
+
+    $rules{do_y_insert}{REG}{WALES} = 1;   #/y/ inserted before initial /@@r/
+					   #, /er/ (y before /ir/ in do_ur_ir)
+					   #must follow h-dropping
+
+-----------------------
+#NON-RHOTIC
+#removes rhotic r in non-rhotic accents
+#1 for non-rhotic non-linking, 2 for non-rhotic linking, 3 for non-rhotic linking with intrusive /r/
+
+    $ruleorder{ap} = do_non_rhotic;	
+
+    $rules{do_non_rhotic}{CNY}{UK} = 3;	       #let's make uk intrusive /r/
+    $rules{do_non_rhotic}{TWN}{RP} = 2;	       #let's not make rp intrusive /r/
+    $rules{do_non_rhotic}{REG}{SCOTLAND} = 0;
+    $rules{do_non_rhotic}{REG}{IRELAND} = 0;
+    $rules{do_non_rhotic}{CNY}{AUS} = 2;
+    $rules{do_non_rhotic}{CNY}{NZ} = 2;
+    $rules{do_non_rhotic}{PER}{NYC1} = 3;      #nyc1 has intrusive /r/
+    $rules{do_non_rhotic}{REG}{S_US} = 1;
+    
+-----------------------
+# SY, ZY
+#s y, z y, s ii @, z ii @, versus sh, zh
+#some are optional for rp, but included as a global rule for rp
+
+    $ruleorder{b} = do_sy_zy;	
+
+    $rules{do_sy_zy}{CNY}{UK} = 1;
+    $rules{do_sy_zy}{REG}{IRELAND} = 2;
+    $rules{do_sy_zy}{REG}{WALES} = 0; 
+    $rules{do_sy_zy}{TWN}{CARDIFF} = 1;
+    $rules{do_sy_zy}{CNY}{US} = 3;
+    $rules{do_sy_zy}{CNY}{NZ} = 1;
+    $rules{do_sy_zy}{CNY}{AUS} = 1;
+    
+-----------------------
+# TY, DY
+# similar to sy_zy, also reduces following v's
+    $ruleorder{c} = do_ty_dy;
+
+    $rules{do_ty_dy}{CNY}{UK} = 1;
+    $rules{do_ty_dy}{REG}{WALES} = 0;
+    $rules{do_ty_dy}{TWN}{CARDIFF} = 2;	 #tube, due
+					 #welsh english doesn't 
+                                         #normally fall in the scope of
+                                         #score 1 anyway due to iu
+    $rules{do_ty_dy}{CNY}{US} = 1;
+    $rules{do_ty_dy}{CNY}{NZ} = 1;
+    $rules{do_ty_dy}{CNY}{AUS} = 1;
+    
+    
+-----------------------
+# WELSH AH
+# Cardiff /ah/ generally == /aa/ before fricative
+    $ruleorder{d} = do_class;	
+
+    $rules{do_class}{TWN}{CARDIFF} = 1;
+
+----------------------
+# SCOTS LONG VOWELS
+    $ruleorder{e} = do_scots_long;
+
+    $rules{do_scots_long}{REG}{SCOTLAND} = 1;
+    
+-----------------------
+# TAPPED R
+#realisations of r in scots
+#different scores for different environments
+    $ruleorder{f} = do_tapped_r;
+
+    $rules{do_tapped_r}{REG}{SCOTLAND} = 1;   #between vowels, word-initially
+    $rules{do_tapped_r}{PER}{ABD1} = 2;       #in some clusters too
+    $rules{do_tapped_r}{REG}{WALES} = 3;      #only intervocalically
+       
+-----------------------
+# DARK L
+    $ruleorder{g} = do_dark_l;
+
+    $rules{do_dark_l}{REG}{S_ENG} = 1;
+    $rules{do_dark_l}{TWN}{CARDIFF} = 4;   #retain ll
+    $rules{do_dark_l}{CNY}{US} = 2;
+    $rules{do_dark_l}{REG}{S_US} = 3;
+    
+-----------------------
+# ING COALESCENCE
+#i ng ->/i n/ OR /ng/
+# most of uk uses this in some form, let's put it in
+#should precede i_reduction for broad australian (not yet included)
+    $ruleorder{h} = do_ing;
+
+    $rules{do_ing}{CNY}{UK} = 1;
+    $rules{do_ing}{TWN}{RP} = 0;
+    $rules{do_ing}{REG}{SCOTLAND} = 2;  #some syllabic output included
+    $rules{do_ing}{CNY}{AUS} = 1;
+    $rules{do_ing}{CNY}{NZ} = 1;
+    $rules{do_ing}{REG}{S_US} = 1;
+-----------------------
+# FINAL T -> R
+# e.g. shut up
+#must follow non-rhotic rule
+    $ruleorder{ia} = do_t_r;
+
+    $rules{do_t_r}{REG}{N_ENG} = 1;
+    
+-----------------------
+# VOICELESS PLURALS
+# e.g. tomatoes /s/, paths /th s/
+    $ruleorder{ib} = do_vless_plural;
+
+    $rules{do_vless_plural}{TWN}{ABERCRAVE} = 1;
+    
+-----------------------
+# US RAISED /A/, /AH/, /OA/
+# lots of variation in spread of rule
+    $ruleorder{k} = do_us_eh;
+
+    $rules{do_us_eh}{CNY}{US} = 1;
+    $rules{do_us_eh}{TWN}{NEW_YORK} = 3;
+# CHECK
+    $rules{do_us_eh}{REG}{S_US} = 4; # not same quality vowel as other regions, but environmentally similar
+
+-----------------------
+# GOAL ALLOPHONE
+# /ou/ allophone before /l/, c.f. 'goat' and 'goal' in some accents (nb also /ouw/
+    $ruleorder{n} = do_ou_l;
+
+    $rules{do_ou_l}{REG}{N_ENG} = 1;	#wholly != holy	(morpheme boundary)
+                                        #also, fool != food
+    $rules{do_ou_l}{REG}{WALES} = 1;	#wholly != holy	(morpheme boundary)
+    $rules{do_ou_l}{CNY}{AUS} = 2;	#wholly == holy, both changed
+    $rules{do_ou_l}{CNY}{NZ} = 3;	#wholly == holy, both changed, 
+                                        #also other changes 
+                                        #and neutralisations before /l/, 
+                                        #e.g. /uu/
+
+-----------------------
+# /i/ REDUCTION
+# /i/ same as /@/ in australian except before a velar
+# should follow ing-coalescence
+#should precede tap rule
+    $ruleorder{o} = do_i_reduction;
+
+    $rules{do_i_reduction}{CNY}{AUS} = 1;	
+
+-----------------------
+# SYLLABICS
+# add extra syllabic consonants
+# should follow i_reduction for aus, but precede taps for aus and wales
+# similar to conv_basic groups 2 and 5
+
+    $ruleorder{pa} = do_syllab;	
+
+    $rules{do_syllab}{REG}{IRELAND} = 1;	
+    $rules{do_syllab}{REG}{SCOTLAND} = 1;	
+    $rules{do_syllab}{TWN}{CARDIFF} = 1;	
+    $rules{do_syllab}{CNY}{AUS} = 1;	
+    $rules{do_syllab}{CNY}{NZ} = 1;	
+    $rules{do_syllab}{CNY}{US} = 1;	
+
+-----------------------
+# GLOTTAL STOP
+# done for scots and cardiff so far, must follow do_syllab for cardiff
+    $ruleorder{pc} = do_glottal_stop;
+
+    $rules{do_glottal_stop}{REG}{SCOTLAND} = 1;  #quite widespread
+    $rules{do_glottal_stop}{TWN}{CARDIFF} = 2;   # word-final before pause 
+                                                 #or consonant, and before syllabic n
+
+-----------------------
+# TAPPED T AND D
+# in US and ireland, and some others
+# should follow i_reduction and syllabics for australian
+    $ruleorder{q} = do_taps;	
+
+    $rules{do_taps}{CNY}{US} = 1;	#after certain things, before certain things
+    $rules{do_taps}{TWN}{CARDIFF} = 2;  #subset of US environments
+    $rules{do_taps}{REG}{IRELAND} = 3;	before word/compound boundaries only
+    $rules{do_taps}{CNY}{AUS} = 4;	#voiced /t/ between vowels
+    $rules{do_taps}{CNY}{NZ} = 4;	#voiced /t/ between vowels
+    
+-----------------------
+# HURRY-FURRY
+# in US, hurry == furry
+# can't leave as keyword - it's contextually conditioned (hut != her)
+
+    $ruleorder{r} = do_hurry_furry;	
+
+    $rules{do_hurry_furry}{CNY}{US} = 1;
+    
+-----------------------
+# NEW YORK NG
+# morpheme final /ng/ is /ng g/, e.g. long island
+    $ruleorder{s} = do_ng_ngg;
+
+    $rules{do_ng_ngg}{TWN}{NEW_YORK} = 1;
+
+-----------------------
+# SHORT ii
+# ii in certain unstressed positions translated to ie (like a short ii), or iy if this is a short ii in the accent
+    $ruleorder{t} = do_short_ii;
+
+    $rules{do_short_ii}{ALL} = 1;       #transformed to iy
+    $rules{do_short_ii}{REG}{SCOTLAND} = 0;
+    $rules{do_short_ii}{REG}{N_ENG} = 2;  #iy is like /i/, so iy and ii
+                                       #are transformed to ie where needed 
+    $rules{do_short_ii}{CNY}{US} = 0;  #not needed, /iy/ like /ii/
+                                       #merge /iy/ and /ii/ at end
+  
+-----------------------
+# uw
+# uu in certain unstressed positions translated to uw (like a short uu)
+    $ruleorder{v} = do_uw;
+
+    $rules{do_uw}{ALL} = 1;
+    $rules{do_uw}{REG}{SCOTLAND} = 0;          #not needed
+    $rules{do_uw}{CNY}{US} = 0;                #not needed
+    
+-----------------------
+# SOUTHERN US pre-velar allophones
+# /i/ becomes /ei/ before velar in casual speech (/ii/ in formal)
+# /e/ becomes /ei/ before /g/ in casual speech
+    $ruleorder{w} = do_sus_velar;
+
+    $rules{do_sus_velar}{REG}{S_US} = 1;
+
+-----------------------
+# SOUTHERN US cup-cut
+# merge except before labial
+    $ruleorder{y} = do_sus_strut_nurse;
+
+    $rules{do_sus_strut_nurse}{REG}{S_US} = 1;
+
+-----------------------
+# SOUTHERN US ai-aai
+# ai (or ae) becomes monophthongal aai except before voiceless consonant in same syllable
+    $ruleorder{za} = do_aai_oow;
+
+    $rules{do_aai_oow}{REG}{S_US} = 1;
+
+-----------------------
+# SOUTHERN US pen-pin
+# /e/ raised to /i/ before nasal
+    $ruleorder{zb} = do_e_i;
+
+    $rules{do_e_i}{REG}{S_US} = 1;
+
+-----------------------
+# SOUTHERN US breaking
+# @ offglide after /i/ /e/ /a/ (and their counterparts) before labial
+# not sure where this comes in order, let's put after do_e_i to make hem and him homophones
+    $ruleorder{zc} = do_sus_break;
+
+    $rules{do_sus_break}{REG}{S_US} = 1;
+
+
+
+-----------------------
+# SOUTHERN US weak finals
+# final syllable /uu/ or /ou/ (of free morpheme?) reduced to schwa, e.g. volume
+    $ruleorder{zd} = do_sus_weak;
+
+    $rules{do_sus_weak}{REG}{S_US} = 1;
+
+-----------------------------------
+#REDUCING REDUNDANCY - USED IN MAP-UNIQUE PROGRAM
+#0(default) means no conversion, unless overruled by {ALL} - this is used for v. common mappings, e.g. ee_ei - nb dangerous strategy!
+#mapping must be expressed as from_(from)_to - transformation is automatically converted by map-unique, the last symbol is the target
+#all should be order free and context free, and apply to single segments
+#because of this, rules where there is a potential conflict should be switched off, e.g. north-force for scotland
+#if there is a multi-level rule, e.g. force==north==thought in RP, make sure to account for all inputs
+#only used for conversions which do not affect other rules (c.f. h-dropping)
+
+#I've included removal of morpheme boundaries in map-unique script
+
+#vowels
+
+#    $map{iy_ii}{CNY}{AUS} = 1;         #happy == fleece (left out as I'm not sure if it's exactly equivalent
+
+    $map{iy_ii}{CNY}{US} = 1;         #happy == fleece
+    $map{iy_ii}{REG}{S_US} = 0;         #happy == fleece
+    $map{iy_i}{REG}{S_US} = 1;         #happy == kit
+
+    $map{ao_a}{CNY}{UK} = 1;           #mazda == trap
+    $map{ao_a}{CNY}{AUS} = 1;
+    $map{ao_a}{CNY}{NZ} = 1;
+
+    $map{oa_ar_ah_aa}{REG}{S_ENG} = 1;  #banana == start == bath == palm 
+                                       #(mazda above)
+    $map{oa_ar_ah_aa}{CNY}{AUS} = 1;
+    $map{oa_ar_ah_aa}{CNY}{NZ} = 1;
+
+    $map{ah_a}{REG}{N_ENG} = 1;         #bath == trap (mazda above)
+    $map{ah_a}{REG}{WALES} = 1;         #bath == trap (mazda above)
+    $map{ah_a}{TWN}{COUNTY_CLARE} = 1;  #bath == trap (mazda above)
+    $map{oa_aa}{TWN}{COUNTY_CLARE} = 1;  #banana == palm
+    $map{oa_ar_aa}{REG}{N_ENG} = 1;     #banana == start == palm
+    $map{oa_ar_aa}{REG}{WALES} = 1;     #banana == start == palm
+
+    $map{ao_oa_ah_aa_a}{REG}{SCOTLAND} = 1;  #mazda == banana 
+                                       # == bath == palm == trap
+	                               #no conflict with ao_a, regardless 
+                                       #of order
+
+    $map{ao_o_aa}{CNY}{US} = 1;        #mazda == lot == palm
+    $map{ar_aa}{PER}{NYC1} = 1;        #start == palm
+
+    $map{oa_ah_a}{CNY}{US} = 1;        #banana == bath == trap
+
+
+    $map{oou_au_o}{CNY}{UK} = 1;       #adios == cloth == lot
+    $map{oou_au_o}{CNY}{NZ} = 1;
+    $map{oou_au_o}{CNY}{AUS} = 1;
+
+    $map{oou_au_o_oo}{REG}{SCOTLAND} = 1;       #adios == cloth == lot == thought
+
+    $map{oou_ou}{CNY}{US} = 1;         #adios == goat
+    $map{au_oo}{CNY}{US} = 1;	       #cloth == thought
+    $map{or_oo}{REG}{S_US} = 1;	       #north == thought
+
+    $map{our_or_oo}{CNY}{UK} = 1;      # force == north == thought
+    $map{our_or_oo}{REG}{SCOTLAND} = 0;
+    $map{our_or_oo}{REG}{IRELAND} = 0; 
+    $map{our_or_oo}{REG}{WALES} = 0; 
+    $map{our_or_oo}{TWN}{CARDIFF} = 1; 
+    $map{our_ou}{TWN}{CARDIFF} = 0; 
+    $map{our_or_oo}{CNY}{AUS} = 1;
+    $map{our_or_oo}{CNY}{NZ} = 1;
+
+    $map{or_oo}{REG}{WALES} = 1;      # north == thought
+    $map{our_ou}{REG}{WALES} = 1;      # force == goat
+
+    $map{our_or}{CNY}{US} = 1;      # force == north
+    $map{or_oo}{PER}{NYC1} = 1;      # force == thought, non-rhotic nyc
+    $map{our_or}{REG}{S_US} = 0;      # force == north
+
+    $map{iu_uu}{ALL} = 1;              #goose == blew
+    $map{iu_uu}{REG}{WALES} = 0;
+    $map{iu_uu}{TWN}{NEW_YORK} = 0;
+
+    $map{ouw_ou}{ALL} = 1;              #know == no
+    $map{ouw_ou}{TWN}{ABERCRAVE} = 0;
+
+    $map{oul_ou @}{REG}{WALES} = 1;  #goal
+    $map{uul_uu @}{REG}{WALES} = 1;  #ghoul
+
+    $map{i_@}{CNY}{NZ} = 1;         #kit == comma
+
+    $map{uh_@}{REG}{WALES} = 1;        #strut == comma
+
+    $map{uh_u}{REG}{N_ENG} = 1;         #strut == foot
+
+    $map{u_uu}{REG}{SCOTLAND} = 1;     #foot == goose 
+                                       #(also == blew by default from above)
+
+    $map{ee_ei}{ALL} = 1;              #waste == waist
+    $map{ee_ei}{TWN}{ABERCRAVE} = 0;
+
+    $map{ae_ai}{ALL} = 1;              #tied == price
+    $map{ae_ai}{REG}{SCOTLAND} = 0;
+
+    $map{aer_ai @}{CNY}{UK} = 1;      #fire == (sequence, non-rhotic) 
+    $map{aer_ai @}{REG}{SCOTLAND} = 0;      
+    $map{aer_ai @}{REG}{IRELAND} = 0;      
+    $map{aer_ai @}{REG}{WALES} = 0;
+    $map{aer_ai . y @}{REG}{WALES} = 1;      #broken into two syllables
+    $map{aer_ai @}{CNY}{AUS} = 1;
+    $map{aer_ai @}{CNY}{NZ} = 1;
+    $map{aer_ai @}{PER}{NYC1} = 1;
+
+    $map{oir_oi @}{CNY}{UK} = 1;      #coir == (sequence, non-rhotic) 
+    $map{oir_oi @}{REG}{SCOTLAND} = 0;      #coir == (rhotic, only one example though) 
+    $map{oir_oi @}{REG}{IRELAND} = 0;      
+    $map{oir_oi @}{REG}{WALES} = 0;
+    $map{oir_oi @}{REG}{S_US} = 0;      
+    $map{oir_oi @}{PER}{NYC1} = 0;      
+    $map{oir_oi . y @}{REG}{WALES} = 1;      #broken into two syllables
+
+    $map{oir_oi @}{REG}{S_US} = 1;
+
+    $map{oir_oi @}{CNY}{AUS} = 1;      
+    $map{oir_oi @}{CNY}{NZ} = 1;      
+        
+
+    $map{owr_ow @}{CNY}{UK} = 1;      #hour == (sequence, non-rhotic) 
+    $map{owr_ow @}{REG}{SCOTLAND} = 0;      
+    $map{owr_ow @}{REG}{IRELAND} = 0;      
+    $map{owr_ow @}{REG}{WALES} = 0;
+    $map{owr_ow . w @}{REG}{WALES} = 1;      #broken into two syllables
+    $map{owr_ow @}{CNY}{AUS} = 1;
+    $map{owr_ow @}{CNY}{NZ} = 1;
+    $map{owr_ow @}{REG}{S_US} = 1;
+    $map{owr_ow @}{PER}{NYC1} = 1;
+
+    $map{er_@@r}{ALL} = 1;             #pert == nurse
+    $map{er_@@r}{REG}{SCOTLAND} = 0;          
+
+    $map{iy_i}{REG}{N_ENG} = 1;       #happy = kit
+    $map{iy_ii}{REG}{SCOTLAND} = 1;       #happy = fleece
+
+    $map{eh_eir}{PER}{NYC1} = 1;          #bath = square
+
+    $map{i@_ii @}{ALL} = 1;          #idea = free-er
+    $map{i@_ii @}{REG}{S_ENG} = 0;          
+
+    $map{ir_i@}{REG}{S_ENG} = 1;          #near = idea
+    $map{ir_ii}{REG}{S_US} = 1;          #nearing = fleece
+    $map{ir_ii @}{PER}{NYC1} = 1;          #near = idea
+
+    $map{@r_@}{CNY}{UK} = 1;           #letter == comma
+    $map{@r_@}{REG}{SCOTLAND} = 0;
+    $map{@r_@}{REG}{IRELAND} = 0;
+    $map{@r_@}{CNY}{NZ} = 1;
+    $map{@r_@}{CNY}{AUS} = 1;
+    $map{@r_@}{PER}{NYC1} = 1;
+    $map{@r_@}{REG}{S_US} = 1;           #letter == comma
+
+#consonants
+    $map{hw_w}{ALL} = 1;                #which == witch
+    $map{hw_w}{REG}{SCOTLAND} = 0;
+    $map{hw_w}{CNY}{US} = 0;
+    $map{hw_w}{TWN}{NEW_YORK} = 1;
+    $map{hw_w}{REG}{IRELAND} = 0;
+
+    $map{ll_l}{ALL} = 1;                #llan == lan
+    $map{ll_l}{REG}{WALES} = 0;        #llan == lan
+
+    $map{x_k}{ALL} = 1;                 #loch == loch
+    $map{x_k}{REG}{WALES} = 0;    
+    $map{x_k}{REG}{IRELAND} = 0;    
+    $map{x_k}{REG}{SCOTLAND} = 0; 
+
+----------------------
+

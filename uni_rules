@@ -1,0 +1,100 @@
+#A4 treated as schwa for syllable structure in base files
+#ii2 treated as a vowel for syllable structure in base files
+#These two do not correspond to US/UK, so inconvenient to set up variable syllable boundaries just for them - this is dealt with in post-lex-rules
+
+init >	/ p t k b d g m n th dh f v s z sh zh ch jh l r y w hw h ll t^ ? lw /
+init >	/ s / + / p t k m n /
+for_init >	/ s / + / f v r /
+for_init >	/ t^ / + / y /		#for accent abd1
+init >	/ n m v dh r l h lw / + / y /
+for_init >	/ v / + / r w /
+for_init >	/ jh ch / + / y /
+for_init >	/ v z / + / l lw /
+init >	/ k g / + / y l r w lw /
+for_init >	/ b p d f th v / + / t^ /	#for accent abd1
+init >	/ b p f / + / y l r lw /
+for_init >	/ lw b p f l n m h zh r / + / w /
+init >	/ s / + / y l w lw /
+init >	/ z / + / y w /
+init >	/ t d th / + / y r w /
+for_init >	/ t / + / s /
+for_init >	/ w sh / + / y / 	#for accent abc, cdf
+for_init >	/ s / + / ch / 		#for accent cdf
+init >	/ sh / + / v r /
+for_init >	/ sh / + / m l n w t p v lw /
+init >	/ s / + / k / + / y l r w lw /
+init >	/ s / + / p / + / y l r lw t^ /	#last symbol for accent abd1
+init >	/ s / + / t / + / y r w /
+for_init >	/ s / + / n f m / + / y /  	#/s n y/ for accent abc, cdf
+for_init >	/ k / + / l w / + / y /		#for accent abc, cdf
+init >	/ s / + / l / + / y /
+for_init >	/ t / + / r / + / w /
+stress	 >	/ * ~ - /
+vowel	 >	/ ii i ie e a uh aa aai o oo u uu uw @@ @ ei ai oi au ou ouw oul uul ah ah2 iy ow oow ou oou ao oa ir er ar or our ur i@ ae iu3 @r I2 E0 I7 @@r eir iu A4 O4 UH4 A5 EE5 EI5 O5 I6 I4 E5 O6 O3 I5 @@r2 @@r3 aer owr oir OU5 ii; uu; ur; ir; ii2 ee EE1 eh UH OO1 EI EE iir OUW1 E50 E05 iur UW /
+vowel	 >	/ ii ie ei ai oi au ou uu aai uw oo aa ae iu ow oow iu3 oa iy ii; uu; ee ii2 ouw i / + / @ @r A4 /
+for_vowel	 >	/ e / + / @ /
+for_vowel	 >	/ a / + / @ /	#for accent sca
+syllcons >	/ m n l m! n! l! /
+fin >	/ p t k b d g m n ng th dh f v s z sh zh ch jh l lw r x t^ ? /
+fin >	/ b d g m n ng dh v l lw / + / z /
+fin >	/ p t k m n th f l lw x ?  / + / s /
+fin >	/ n l lw / + / th ch jh /
+fin >	/ n r / + / t^ ? /
+fin >	/ l / + / ? /
+for_fin >	/ n / + / zh sh /
+for_fin >	/ d s / + / th /
+fin > 	/ l lw / + / p b k m n f v sh /
+fin > 	/ r / + / p t k b d g m n th dh f v s z sh zh ch jh l lw t^ /
+fin >	/ b g m n ng dh v z zh jh l lw / + / d /
+fin >	/ p k m n th f s sh ch l lw x / + / t /
+fin > 	/ m s / + / p /
+fin > 	/ m / + / f /
+for_fin >	/ p / + / f /
+fin >	/ ng / + / k g /
+for_fin >	/ l lw / + / g /
+fin > 	/ s / + / k /
+fin >	/ p t m ng f ? / + / th /
+fin >	/ p t m n ng f l lw r ? / + / th / + / s /
+for_fin >	/ d / + / th / + / s /
+for_fin >	/ r / + / m / + / th /
+for_fin >	/ m / + / p / + / f /
+for_fin >	/ r / + / l lw / + / s /
+for_fin >	/ x / + / t / + / s /
+for_fin >	/ r / + / th / + / t /
+for_fin >	/ ng / + / g / + / z d /  	#for accent nyc
+fin >	/ p k n s f l lw r / + / t / + / s /
+fin >	/ n r l / + / ? / + / s /
+fin >	/ n l lw r z / + / d / + / z /
+fin >	/ l lw r / + / n / + / z /
+fin >	/ r / + / l lw / + / z /
+fin >	/ ng l lw s r / + / k / + / t s /
+fin >	/ l lw r / + / f / + / t s th /
+fin >	/ k / + / s / + / th /
+fin >	/ l lw r / + / s ch / + / t /
+fin >	/ l lw r / + / b m v g / + / d z /
+fin >	/ p t k d n r ? / + / s / + / t /
+for_fin >	/ ng / + / s / + / t /
+for_fin >	/ n m r / + / s / + / k /
+fin >	/ s m l lw r / + / p / + / t s /
+fin >	/ m r / + / f / + / t s /
+fin >	/ n r / + / ch / + / t /
+fin >	/ r / + / n l lw / + / t d /
+fin >	/ r / + / n / + / ? t^ /
+fin >	/ l lw n r / + / z jh / + / d /
+for_fin >	/ d / + / z / + / d /
+for_fin >	/ l lw / + / sh / + / t /
+fin >	/ ng / + / k / + / t th / + / s /
+for_fin >	/ ng / + / k / + / s / + / t /
+for_fin >	/ r / + / n / + / s / + / t /
+for_fin >	/ ng / + / s / + / t / + / s /
+fin >	/ k r / + / s / + / t / + / s /
+for_fin >	/ k / + / s / + / th / + / s /
+for_fin >	/ l lw / + / f / + / th / + / s /
+for_fin >	/ r / + / m / + / th / + / s /
+fin >	/ m / + / p / + / t / + / s /
+for_fin >	/ l lw r / + / p / + / t / + / s /
+fin >	/ m / + / p / + / s / + / t /
+fin >	/ l lw / + / t ? / + / s / + / t /
+fin >	/ r / + / l lw / + / d / + / z /
+
+

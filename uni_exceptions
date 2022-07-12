@@ -1,0 +1,83 @@
+#some need to be listed as complete derivations, e.g. houses in scots
+#don't bother putting freq in here
+#format following first % is as in base files, except that two pronunciations are given, separated by %. The first is the original, the second is the new one
+#NB if original pron is changed in main lex, it needs to be changed here to as it is used for matching exceptions
+
+{CNY} = "US" % montpelier:1,france:NNP: { m o n t =.= p * e . l ii @r r } % { m ~ ou n =.= p * e l . y ei } :{mont==pelier}:
+{CNY} = "US" % montpellier:1,france:NNP: { m o n t =.= p * e . l ii @r r } % { m ~ ou n =.= p * e l . y ei } :{mont==pellier}:
+
+{CNY} = "AUS" % aquatic::JJ: { @ . k w * a =.= t i k } % { @ . k w * o . t i k }:{aqua==tic}:374
+{CNY} = "AUS" % auction::NN/VB/VBP: { * oo k . sh n } % { * o k . sh n } :{auction}:1873
+{CNY} = "AUS" % chassis::NN: { sh * a . s iy } % { sh * a . z iy } :{chassis}:780
+{CNY} = "AUS" % immediate::JJ: { i =.= m * ii . d ii == @ t } % { @ . m * ii . d ii == @ t } :{i==mmedi==ate}:7724
+{CNY} = "AUS" % oral::JJ: { * our . r A5 l } % { * o . r @ l } :{oral}:1964
+{CNY} = "AUS" % queensland::NNP: { k w * ii n == z =.= l A5 n d } % { k w * ii n == z =.= l a n d } :{queen==s==land}:44
+
+{REG} = "S_US" % bulk::NN/VB/VBP: { b * uh l k } % { b * u l k } :{bulk}:
+{REG} = "S_US" % bulge::NN/VB/VBP: { b * uh l jh } % { b * u l jh } :{bulge}:
+{REG} = "S_US" % detroit::NNP: { d i . t r * oi t } % { d * ii . t r oi t } :{detroit}:
+{REG} = "S_US" % hotel::NN/NNP: { h ou . t * e l } % { h * ou . t e l } :{hotel}:
+{REG} = "S_US" % insurance::NN: { i n =.= sh * ur r }.> A5 n s > % { * i n =.= sh ur r }.> A5 n s > :{in==sure}>ance>:21854
+#these are multi-syllabic words using bath-raising
+{REG} = "S_US" % lavender::JJ/NN: { l * a . v I2 n . d @r r } % { l * eh . v I2 n . d @r r } :{lavender}:1038
+{REG} = "S_US" % national::JJ/NNP: { n * a sh . n $}> l > % { n * eh sh . n $}> l > :{nation}>al>:69530
+{REG} = "S_US" % savage::JJ/NN/VB/VBP: { s * a . v I2 jh } % { s * eh . v I2 jh } :{savage}:3242
+{REG} = "S_US" % wagon::NN: { w * a . g @ n } % { w * eh . g @ n } :{wagon}:2159
+{REG} = "S_US" % dagger::NN: { d * a . g @r r } % { d * eh . g @r r } :{dagger}:686
+{REG} = "S_US" % fashion::NN/VB/VBP: { f * a . sh n } % { f * eh . sh n } :{fashion}:10126
+#syllabification changed to block monophthong rule
+{REG} = "S_US" % psychic::JJ/NN: { s * ae . k == i k } % { s * ae k =.= i k } :{psych==ic}:306
+{REG} = "S_US" % icicle::NN: { * ai . s == i . k l } % { * ai s =.= i . k l } :{ic==icle}:16
+{REG} = "S_US" % cycle::NN/VBP/VB: { s * ae . k l } % { s * ae k . l } :{cycle}:5855
+
+#this done as a stem so it will also get theorist, theorem etc.
+{REG} = "S_ENG" % theory::NN: { th * ii @r . r == % { th * ir . r == :{theor==:
+
+{REG} = "SCOTLAND" % thither::RB: { dh * i . dh @r r } % { th * i . dh @r r } :{thither}:
+{REG} = "SCOTLAND" % record:1:NN: { r * e . k OR r d } % { r * e . k @r r d } :{record}:36468
+{REG} = "SCOTLAND" % houses::NNS/VBZ: { h * ow z }.> I7 z > % { h * ow s }.> I7 z > :{house}>s>:
+{REG} = "SCOTLAND" % abbreviate::VB/VBP: { @ =.= b r * ii . v ii =.= ee t } % { @ =.= b r ~ ii . v ii =.= * ee t } :{a==bbrevi==ate}:
+{REG} = "SCOTLAND" % with::IN/JJ: { w * i dh } % { w * i th } :{with}:
+{REG} = "SCOTLAND" % december::NNP: { d i . s * e m . b @r r } % { d i . z * e m . b @r r } :{december}:
+{REG} = "SCOTLAND" % wherewithal::NN: { hw * eir r =.= w i dh =.= ~ oo l } % { hw * eir r =.= w i th =.= ~ oo l } :{where==with==al}:
+{REG} = "SCOTLAND" % your::PRP: { y * or/ur r } % { y * ur r } :{your}:
+{REG} = "SCOTLAND" % although::IN/NN: { oo l =.= dh * ou } % { oo l =.= th * ou } :{al==though}:
+{REG} = "SCOTLAND" % though::IN/RB: { dh * ou } % { th * ou } :{though}:
+{REG} = "SCOTLAND" % length::NN: { l * e ng th } % { l * e n th } :{length}:
+{REG} = "SCOTLAND" % strength::NN: { s t r * e ng th } % { s t r * e n th } :{strength}:
+{REG} = "SCOTLAND" % organise::VB/VBP: { * or r . g @ . n == ae z } % { ~ or r . g @ . n == * ae z } :{organ==ise}:
+{REG} = "SCOTLAND" % raspberry::NN/JJ: { r * ah z =.= b @ . r iy } % { r * ah s =.= b @ . r iy } :{rasp==berry}:
+{REG} = "SCOTLAND" % realise::VBP/VB: { r * i@ . l ae z } % { r i@ . l * ae z } :{realise}:
+{REG} = "SCOTLAND" % iron::NN/VB/VBP/JJ: { * ae @r r n } % { * ae . r @ n } :{iron}:
+{REG} = "SCOTLAND" % magazine::NN: { m ~ a . g @ . z * ii n } % { m * a . g @ . z ~ ii n } :{magazine}:
+{REG} = "SCOTLAND" % thence::RB: { dh * e n s } % { th * e n s } :{thence}:
+{REG} = "SCOTLAND" % wednesday::NNP: { w * e n z =.= d ei } % { w * e . d n z =.= d ei } :{wednes==day}:
+{REG} = "SCOTLAND" % poem::NN: { p * ou . I m } % { p * ou . y @ m } :{poem}:
+{REG} = "SCOTLAND" % peugeot::NNP: { p [y1] [*] @@r2 . zh [*1] ou } % { p y * @@r2 . zh ou } :{peugeot}:945
+{REG} = "SCOTLAND" % isobel::NNP:  { * i . z @ . b e l } % { * i . z @ . b l } :{isobel}:962
+{REG} = "SCOTLAND" % isabel::NNP:  { * i . z @ . b e l } % { * i . z @ . b l } :{isabel}:962
+{REG} = "SCOTLAND" % shire::NNP:  =.= sh AER1 r } % =.= sh aer r } :==shire}:
+
+{TWN} = "CARDIFF" % little::NN: { l * i . t l } % { l * i . ? l } :{tooth}:
+
+{REG} = "WALES" % tooth::NN: { t * uu th } % { t * u th } :{tooth}:
+{REG} = "WALES" % whole::JJ/NN: { h * ou l } % { h * uu l } :{whole}:
+{REG} = "WALES" % their::PRP: { dh * er r } % { dh * ei @r r } :{their}:
+{REG} = "WALES" % really::RB: { r * i@ l }.> iy > % { r * ii l }.> iy > :{real}>y>:551688
+{REG} = "WALES" % renown::NN: { r i . n * ow n } % { r i . n * ou n } :{renown}:483
+
+{REG} = "N_ENG" % poor::JJ: { p * ur r } % { p * or r } :{poor}:
+
+{TWN} = "RP" % poor::JJ: { p * ur r } % { p * or r } :{poor}:
+
+{TWN} = "BIRMINGHAM" % tooth::NN: { t * uu th } % { t * u th } :{tooth}:
+
+{TWN} = "GLASGOW" % j::NNP/NN/LS: { jh * ee } % { jh * ae } :{j}:
+
+{TWN} = "LEEDS" % year::NN: { y * ir r } % { y * @@r r } :{year}:
+{TWN} = "LEEDS" % yesteryear::NN: { y * e . s t @r r =.= y ~ ir r } % { y * e . s t @r r =.= y ~ @@r r } :{yester==year}:
+
+{TWN} = "NEW_YORK" % durham::NNP: { d * uh . r == A5 m } % { d * ur . r == A5 m } :{dur==ham}:
+{TWN} = "NEW_YORK" % donkey::NN: { d * o ng . k iy } % { d * uh ng . k iy } :{donkey}:
+{TWN} = "NEW_YORK" % won't::MD|RB: { w * ou == n t } % { w * uu == n t } :{wo==n't}:
+

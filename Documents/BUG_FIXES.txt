@@ -1,0 +1,51 @@
+Bug fixes and enhancements since 1_1 (see also README.txt):
+
+
+WORDS
+-----
+1. various word-level bugs fixed, including but not limited to:
+	'menstrua' missing /s/ in unilex
+	'zigs' transcribed as zags
+	'coquetr(y/ies)' - wrong syllabification
+	'word-finally' - double l
+	'durham' uses wrong symbol in uni_exceptions
+
+2. some word additions to unilex
+
+
+
+GENERATING SCRIPTS
+------------------
+3. read-text.pl couldn't do more than two initials with full stops, e.g. A.W.E.(fixed)
+	Same in transform-text.pl (fixed)
+
+4. post-lex-rules.pl
+	a. 'pressure' -> { p r * e . sh == } (line 1464 post-lex-rules.pl), should use " $5" instead of "$6" (fixed)
+	b. sca accent do_sus_weak was producing wrong syllabification (fixed)
+	c. correct_bounds was resyllabifying across word boundaries - changed so that the schema matches base unilex transcriptions (e.g. 'pay-as-you-earn')
+	d. reducing from 3 to two syllables may lead to two stresses on bisyllabic word, e.g. 're-enlist (gau)' - secondary stress in these cases changed to tertiary
+	e. -r option added to allow retention of linking r's in r-linking accents such as RP
+
+5. make-lex.pl
+	-r option added to allow retention of linking r's in r-linking accents such as RP
+
+6. output-sam.pl
+	bug fix to allow affix boundaries in symbol matches
+	bug fix in uni_sam to change M symbol to W
+
+CHECKING SCRIPTS
+----------------
+7. intermediate files:
+	previous versions of check-trans.pl and check-phon.pl can't cope with intermediate files output by get-exceptions.pl and post-lex-rules.pl. -m option added to do this.
+
+
+8. check-phon.pl error message reduction
+	a. some exceptions now hard-wired in option -0 to reduce error messages
+	b. an accent-specific option (-a) has been added to allow skipping of general rules such as stressed schwa, for certain accents which merge e.g. schwa and /i/
+	c. error messages in -0 -d option further reduced by adding some accent-specific onsets, codas etc. to uni_rules. This accounts for clusters such as /ng g d/ in the accent nyc. These combinations are still output as warnings when using -1 (report uncommon strings). NB could be tidied up further by altering scripts to use accent-specific rules for these.
+
+NEW SCRIPTS
+-----------
+9. create-unilex-template.pl
+	from a wordlist file, creates a file of skeleton entries for editing and adding to unilex
+

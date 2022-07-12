@@ -1,0 +1,92 @@
+#set town options - 3 chars + optional numbers
+#numbers used to differentiate people within towns
+#person is 0 for standard town settings, additional people must be defined *uniquely* as e.g. RPX1, RPX2
+#constrain region to 8 chars max, country to 5 chars max
+#constrain town to 20 chars max
+#constraints primarily for printing out table of towns
+#no spaces anywhere, no non-ascii chars
+#use E,W,N,S for east etc.
+
+$towns{rpx}{CNY} = "UK";
+$towns{rpx}{REG} = "S_ENG";
+$towns{rpx}{TWN} = "RP";
+$towns{rpx}{PER} = "0";
+$towns{rpx}{NOTES} = "";
+
+$towns{edi}{CNY} = "UK";
+$towns{edi}{REG} = "SCOTLAND";
+$towns{edi}{TWN} = "EDINBURGH";
+$towns{edi}{PER} = "0";
+$towns{edi}{NOTES} = "";
+
+$towns{lds}{CNY} = "UK";
+$towns{lds}{REG} = "N_ENG";
+$towns{lds}{TWN} = "LEEDS";
+$towns{lds}{PER} = "0";
+$towns{lds}{NOTES} = "";
+
+$towns{lds1}{CNY} = "UK";
+$towns{lds1}{REG} = "N_ENG";
+$towns{lds1}{TWN} = "LEEDS";
+$towns{lds1}{PER} = "LDS1";
+$towns{lds1}{NOTES} = "Variant with no h-dropping";
+
+$towns{cdf}{CNY} = "UK";
+$towns{cdf}{REG} = "WALES";
+$towns{cdf}{TWN} = "CARDIFF";
+$towns{cdf}{PER} = "0";
+$towns{cdf}{NOTES} = "";
+
+$towns{abc}{CNY} = "UK";
+$towns{abc}{REG} = "WALES";
+$towns{abc}{TWN} = "ABERCRAVE";
+$towns{abc}{PER} = "0";
+$towns{abc}{NOTES} = "";
+
+$towns{abd1}{CNY} = "UK";
+$towns{abd1}{REG} = "SCOTLAND";
+$towns{abd1}{TWN} = "ABERDEEN"; 
+$towns{abd1}{PER} = "ABD1"; 
+$towns{abd1}{NOTES} = "As Edinburgh.  Examples on web";
+
+$towns{nyc}{CNY} = "US";
+$towns{nyc}{REG} = "E_US";
+$towns{nyc}{TWN} = "NEW_YORK";
+$towns{nyc}{PER} = "0";
+$towns{nyc}{NOTES} = "Treated as rhotic";
+
+$towns{nyc1}{CNY} = "US";
+$towns{nyc1}{REG} = "E_US";
+$towns{nyc1}{TWN} = "NEW_YORK";
+$towns{nyc1}{PER} = "NYC1";
+$towns{nyc1}{NOTES} = "Non-rhotic variant";
+
+$towns{gam}{CNY} = "US";
+$towns{gam}{REG} = "W_N_US";
+$towns{gam}{TWN} = "GENERAL_AMERICAN";
+$towns{gam}{PER} = "0";
+$towns{gam}{NOTES} = "";
+
+$towns{sca}{CNY} = "US";
+$towns{sca}{REG} = "S_US";
+$towns{sca}{TWN} = "SOUTH_CAROLINA";
+$towns{sca}{PER} = "0";
+$towns{sca}{NOTES} = "";
+
+$towns{ccl1}{CNY} = "UK";
+$towns{ccl1}{REG} = "IRELAND";
+$towns{ccl1}{TWN} = "COUNTY_CLARE";
+$towns{ccl1}{PER} = "CCL1";
+$towns{ccl1}{NOTES} = "Examples on web";
+
+$towns{gau}{CNY} = "AUS"; 
+$towns{gau}{REG} = "GEN_AUS";
+$towns{gau}{TWN} = "GENERAL_AUSTRALIAN";
+$towns{gau}{PER} = "0";
+$towns{gau}{NOTES} = "";
+
+$towns{gnz}{CNY} = "NZ"; 
+$towns{gnz}{REG} = "GEN_N_Z";
+$towns{gnz}{TWN} = "GENERAL_NEW_ZEALAND";
+$towns{gnz}{PER} = "0";
+$towns{gnz}{NOTES} = "";

@@ -1,0 +1,231 @@
+#derived symbols also included, e.g. glottal stops, or specified syllabics such as l!.  Listed as [+bas] (included in base lexicon only, shouldn't appear in local conversions) or [-bas] (derived only) or [0bas] (can be in both)
+#maybe syllabics won't appear in derived lex
+#consonants can be fairly well specified, vowels cannot.  However, some specifications needed - determined by what is needed for rules.
+#[+/-stg] is for strong/weak vowels (weak trigger US tap rule, used in glot rule), not specified for [+bas] vowels
+#[+int] is for vowels preceding intrusive /r/ - done in this file in case vowel sets get split further.  Don't need to mark caps vowels - they are reduced prior to rule, or rhotic vowels - they are linking, not intrusive
+#only consonants marked with ! are noted as syllabic, m,n,l unspecified for syllabic
+#[+sll] for boundaries including syllable boundary
+#[+cmp] for boundaries which join word-status compounds, e.g. horsebox
+#[+fri] free initial, for boundaries noting the start of a potentially free unit (i.e. including {, or start of a word/compound unit which may have a prefix) - blocks e.g. glottal stops
+#nb single { > etc. can be wrd boundary.  In right position can be utterance boundary
+#optional comments follow with #
+#note that markers must cover all accents, e.g. dark /lw/ cannot be syllable initial in RP, but it can be in US english, e.g. 'jelly'.
+
+Cons:p  [+ini][+fin][-syl][-vce][+lab][+stp][0bas]
+Cons:t  [+ini][+fin][-syl][-vce][+alv][+stp][0bas]
+Cons:k  [+ini][+fin][-syl][-vce][+vel][+stp][0bas]
+Cons:b  [+ini][+fin][-syl][+vce][+lab][+stp][0bas]
+Cons:d  [+ini][+fin][-syl][+vce][+alv][+stp][0bas]
+Cons:g  [+ini][+fin][-syl][+vce][+vel][+stp][0bas]
+Cons:m  [+ini][+fin][0syl][+vce][+lab][+nas][0bas]
+Cons:n  [+ini][+fin][0syl][+vce][+alv][+nas][0bas]
+Cons:ng [-ini][+fin][-syl][+vce][+vel][+nas][0bas]
+Cons:th [+ini][+fin][-syl][-vce][+den][+frc][0bas]
+Cons:dh [+ini][+fin][-syl][+vce][+den][+frc][0bas]
+Cons:f  [+ini][+fin][-syl][-vce][+lab][+frc][0bas]
+Cons:v  [+ini][+fin][-syl][+vce][+lab][+frc][0bas]
+Cons:s  [+ini][+fin][-syl][-vce][+alv][+frc][0bas]
+Cons:z  [+ini][+fin][-syl][+vce][+alv][+frc][0bas]
+Cons:sh [+ini][+fin][-syl][-vce][+pal][+frc][0bas]
+Cons:zh [+ini][+fin][-syl][+vce][+pal][+frc][0bas]
+Cons:ch [+ini][+fin][-syl][-vce][+pal][+aff][0bas]
+Cons:jh [+ini][+fin][-syl][+vce][+pal][+aff][0bas]
+Cons:h  [+ini][-fin][-syl][-vce][+glo][+frc][0bas]
+Cons:l  [+ini][+fin][0syl][+vce][+alv][+lat][0bas]
+Cons:r  [+ini][+fin][-syl][+vce][+alv][+app][0bas]
+Cons:x  [+ini][+fin][-syl][-vce][+vel][+frc][0bas]
+Cons:y  [+ini][-fin][-syl][+vce][+pal][+pal][0bas]
+Cons:w  [+ini][-fin][-syl][+vce][+lab][+app][0bas]
+Cons:hw [+ini][-fin][-syl][-vce][+lab][+app][0bas]
+Cons:ll [+ini][-fin][-syl][-vce][+alv][+lat][0bas]
+Cons:?  [+ini][+fin][-syl][-vce][+glo][+stp][-bas]
+Cons:t^ [+ini][+fin][-syl][-vce][+alv][+tap][-bas]
+Cons:m! [+ini][+fin][+syl][+vce][+lab][+nas][-bas]
+Cons:n! [+ini][+fin][+syl][+vce][+alv][+nas][-bas]
+Cons:l! [+ini][+fin][+syl][+vce][+alv][+lat][-bas]
+Cons:lw [+ini][+fin][-syl][+vce][+alv][+lat][-bas]
+
+Vowel:ii   [-rho][0bas][-stg][-int]
+Vowel:i    [-rho][0bas][-stg][-int]
+Vowel:ie   [-rho][-bas][-stg][-int]   #short 'ii' (for when /iy/ == /i/)
+Vowel:e    [-rho][0bas][+stg][-int]
+Vowel:a    [-rho][0bas][+stg][-int]
+Vowel:uh   [-rho][0bas][+stg][-int]
+Vowel:aa   [-rho][0bas][+stg][+int]
+Vowel:o    [-rho][0bas][+stg][-int]   # 'jog' e.g. U.S. c.f. /au/
+Vowel:oo   [-rho][0bas][+stg][+int]
+Vowel:u    [-rho][0bas][+stg][-int]
+Vowel:uu   [-rho][0bas][+stg][-int]
+Vowel:uw   [-rho][-bas][-stg][-int]
+Vowel:@    [-rho][0bas][-stg][+int]
+Vowel:ei   [-rho][0bas][+stg][-int]   # 'waist', e.g. Abercrave, c.f. /ee/
+Vowel:ee   [-rho][0bas][+stg][-int]   # 'waste', e.g. Abercrave, c.f. /ei/
+Vowel:ai   [-rho][0bas][+stg][-int]   # 'tide', e.g. Scotland, c.f. /ae/
+Vowel:aai  [-rho][0bas][+stg][-int]   # monophthongal /ai/, southern us
+Vowel:oi   [-rho][0bas][+stg][-int]
+Vowel:au   [-rho][0bas][+stg][-int]   # 'dog' e.g. U.S. c.f. /o/
+Vowel:ou   [-rho][0bas][+stg][-int]   # 'go'
+Vowel:ouw  [-rho][0bas][+stg][-int]   # 'know'
+Vowel:ah   [-rho][0bas][+stg][+int]   # 'dance', uk variation, c.f. /a/, /aa/
+                                      # nb not generally word-final, but marked
+                                      # as +int
+Vowel:iy   [-rho][0bas][-stg][-int]
+Vowel:ow   [-rho][0bas][+stg][-int]
+Vowel:oow  [-rho][0bas][+stg][-int]
+Vowel:ou   [-rho][0bas][-stg][-int]
+Vowel:oou  [-rho][0bas][+stg][-int]   # 'marcos', U.S. vs. UK
+Vowel:ao   [-rho][0bas][+stg][-int]   # 'gandhi', U.S. vs UK
+Vowel:oa   [-rho][0bas][+stg][+int]   # 'banana', U.S. vs UK
+Vowel:ir   [+rho][0bas][+stg][0int]
+Vowel:er   [+rho][0bas][+stg][0int]
+Vowel:ar   [+rho][0bas][+stg][0int]
+Vowel:or   [+rho][0bas][+stg][0int]   # 'north', e.g. Scotland, c.f. /our/
+Vowel:our  [+rho][0bas][+stg][0int]   # 'force', e.g. Scotland, c.f. /or/
+Vowel:ur   [+rho][0bas][+stg][0int]
+Vowel:@r   [+rho][0bas][-stg][0int]
+Vowel:@@r  [+rho][0bas][-stg][+int]   #[+int] as this is output of @@r2 
+                                      #etc., not always pre-rhotic
+Vowel:eir  [+rho][0bas][+stg][0int]
+Vowel:i@   [-rho][0bas][+stg][+int]
+Vowel:ae   [-rho][0bas][+stg][-int]   # 'tied', e.g. Scotland, c.f. /ai/
+Vowel:iu   [-rho][0bas][+stg][-int]   # iu diphthong, e.g. N.Y., Wales
+Vowel:aer  [+rho][0bas][+stg][0int]   #for 'fire'
+Vowel:owr  [+rho][0bas][+stg][0int]   #for 'hour'
+Vowel:oir  [+rho][0bas][+stg][0int]   #for 'coir'
+Vowel:iu3  [-rho][+bas][0stg][-int]   # iu diphthong, e.g. Wales
+Vowel:A    [-rho][+bas][0stg][-int]
+Vowel:E    [-rho][+bas][0stg][-int]
+Vowel:I    [-rho][+bas][0stg][-int]
+Vowel:O    [-rho][+bas][0stg][-int]
+Vowel:U    [-rho][+bas][0stg][-int]
+Vowel:II   [-rho][+bas][0stg][-int]
+Vowel:OU   [-rho][+bas][0stg][-int]
+Vowel:AI   [-rho][+bas][0stg][-int]
+Vowel:AA   [-rho][+bas][0stg][0int]
+Vowel:AER  [+rho][+bas][0stg][0int]   
+Vowel:OO   [-rho][+bas][0stg][0int]
+Vowel:UU   [-rho][+bas][0stg][-int]
+Vowel:UH   [-rho][+bas][0stg][-int]
+Vowel:IU   [-rho][+bas][0stg][-int]
+Vowel:EI   [-rho][+bas][0stg][-int]
+Vowel:EE   [-rho][+bas][0stg][-int]
+Vowel:AE   [-rho][+bas][0stg][-int]
+Vowel:ER   [+rho][+bas][0stg][0int]
+Vowel:OR   [+rho][+bas][0stg][0int]
+Vowel:IR   [+rho][+bas][0stg][0int]
+Vowel:EIR  [+rho][+bas][0stg][0int]
+Vowel:AR   [+rho][+bas][0stg][0int]
+Vowel:UR   [+rho][+bas][0stg][0int]
+Vowel:AH1  [-rho][+bas][0stg][-int]
+Vowel:AA1  [-rho][+bas][0stg][-int]
+Vowel:A1   [-rho][+bas][0stg][-int]
+Vowel:O1   [-rho][+bas][0stg][-int]
+Vowel:I1   [-rho][+bas][0stg][-int]
+Vowel:E1   [-rho][+bas][0stg][-int]
+Vowel:EE1  [-rho][+bas][0stg][-int]
+Vowel:II1  [-rho][+bas][0stg][-int]
+Vowel:OO1  [-rho][+bas][0stg][-int]
+Vowel:UU1  [-rho][+bas][0stg][-int]
+Vowel:UH1  [-rho][+bas][0stg][-int]
+Vowel:AR1  [+rho][+bas][0stg][0int]
+Vowel:OU1  [-rho][+bas][0stg][-int]
+Vowel:OUW1 [-rho][+bas][0stg][-int]
+Vowel:EIR1 [+rho][+bas][0stg][0int]
+Vowel:OR1  [+rho][+bas][0stg][0int]
+Vowel:OUR1 [+rho][+bas][0stg][0int]
+Vowel:@@R1 [+rho][+bas][0stg][0int]
+Vowel:AER1 [+rho][+bas][0stg][0int]   
+Vowel:E0   [-rho][+bas][0stg][-int]
+Vowel:A4   [-rho][+bas][0stg][-int]   #strong vowel in initial syll, e.g. Yorks
+Vowel:O4   [-rho][+bas][0stg][-int]   #strong vowel in initial syll, e.g. Yorks
+Vowel:UH4  [-rho][+bas][0stg][-int]   #strong vowel in initial syll, e.g. Yorks
+Vowel:I2   [-rho][+bas][0stg][-int]
+Vowel:I7   [-rho][+bas][0stg][-int]
+Vowel:I6   [-rho][+bas][0stg][-int]
+Vowel:A5   [-rho][+bas][0stg][-int]   #strong vowel in final syll, e.g. Wales
+Vowel:EE5  [-rho][+bas][0stg][-int]   #strong vowel in final syll, e.g. Wales
+Vowel:O5   [-rho][+bas][0stg][-int]   #strong vowel in final syll, e.g. Wales
+Vowel:E5   [-rho][+bas][0stg][-int]   #strong vowel in final syll, e.g. Wales
+Vowel:E05  [-rho][+bas][0stg][-int]   #strong vowel in Wales, i elsewhere
+Vowel:E50  [-rho][+bas][0stg][-int]   #strong vowel in Wales, deleted elsewhere
+Vowel:I5   [-rho][+bas][0stg][-int]   #strong vowel in final syll, e.g. Wales
+Vowel:OU5  [-rho][+bas][0stg][-int]   #strong vowel in final syll, e.g. Wales
+Vowel:UW   [-rho][+bas][-stg][-int]
+Vowel:@@r2 [-rho][+bas][0stg][+int]   #foreign words
+Vowel:@@r3 [-rho][+bas][0stg][+int]   #foreign words
+Vowel:ii2  [-rho][+bas][0stg][-int]   #for brilliant etc, vowel vs. glide
+Vowel:iir  [+rho][-bas][+stg][0int]   #for australian 'beery'
+Vowel:ii;  [-rho][-bas][-stg][-int]   #long scots vowel
+Vowel:ir;  [+rho][-bas][+stg][0int]   #long scots vowel
+Vowel:uu;  [-rho][-bas][+stg][-int]   #long scots vowel
+Vowel:ur;  [+rho][-bas][+stg][0int]   #long scots vowel
+Vowel:eh   [-rho][-bas][+stg][-int]   #raised /a/, /ah/ in american
+Vowel:oul  [-rho][-bas][+stg][-int]   #goal vs goat
+Vowel:uul  [-rho][-bas][+stg][-int]   #fool vs food
+Vowel:ah2  [-rho][+bas][+stg][-int]   #/ah2/->/a/ in australian, e.g. dance
+Vowel:iur  [+rho][-bas][+stg][0int]   #for welsh, allophone of /iu/
+
+
+Extra:(  [+bas]
+Extra:)  [+bas]
+Extra:[  [+bas]
+Extra:]  [+bas]
+Extra:1] [+bas]
+Extra:/  [+bas]
+
+Stress:*  [0bas]
+Stress:*1 [+bas]
+Stress:~  [0bas]
+Stress:~1 [+bas]
+Stress:-  [0bas]
+Stress:-1 [+bas]
+
+Bound:.      [0bas][+sll][-wrd][-utt][-cmp][-fri][-frf]
+Bound:{      [0bas][+sll][+wrd][+utt][-cmp][+fri][-frf]
+Bound:}      [0bas][+sll][+wrd][+utt][-cmp][-fri][+frf]
+Bound:$}     [0bas][+sll][+wrd][-utt][-cmp][-fri][+frf]
+Bound:<      [0bas][+sll][+wrd][+utt][-cmp][+fri][-frf]
+Bound:>      [0bas][+sll][+wrd][+utt][-cmp][-fri][+frf]
+Bound:}{     [0bas][-sll][-wrd][-utt][+cmp][+fri][+frf]
+Bound:}>     [0bas][-sll][-wrd][-utt][-cmp][-fri][+frf]
+Bound:}<     [0bas][-sll][-wrd][-utt][+cmp][+fri][+frf]
+Bound:$}>    [0bas][-sll][-wrd][-utt][-cmp][-fri][+frf]
+Bound:==$}>  [0bas][-sll][-wrd][-utt][-cmp][-fri][+frf]   #used where symbol is dropped
+Bound:}.{    [0bas][+sll][-wrd][-utt][+cmp][+fri][+frf]
+Bound:$}.{   [0bas][+sll][-wrd][-utt][+cmp][+fri][+frf]
+Bound:}.>    [0bas][+sll][-wrd][-utt][-cmp][-fri][+frf]
+Bound:}.<    [0bas][+sll][-wrd][-utt][+cmp][+fri][+frf]
+Bound:$}.>   [0bas][+sll][-wrd][-utt][-cmp][-fri][+frf]
+Bound:<{     [0bas][-sll][-wrd][-utt][-cmp][+fri][-frf]
+Bound:<<     [0bas][-sll][-wrd][-utt][-cmp][+fri][-frf]
+Bound:$<{    [0bas][-sll][-wrd][-utt][-cmp][+fri][-frf]
+Bound:$<<    [0bas][-sll][-wrd][-utt][-cmp][+fri][-frf]
+Bound:<.{    [0bas][+sll][-wrd][-utt][-cmp][+fri][-frf]
+Bound:<.<    [0bas][+sll][-wrd][-utt][-cmp][+fri][-frf]
+Bound:$<.{   [0bas][+sll][-wrd][-utt][-cmp][+fri][-frf]
+Bound:$<.<   [0bas][+sll][-wrd][-utt][-cmp][+fri][-frf]
+Bound:>{     [0bas][-sll][-wrd][-utt][+cmp][+fri][+frf]
+Bound:>>     [0bas][-sll][-wrd][-utt][-cmp][-fri][+frf]
+Bound:><     [0bas][-sll][-wrd][-utt][+cmp][+fri][+frf]
+Bound:$>>    [0bas][-sll][-wrd][-utt][-cmp][-fri][+frf]
+Bound:>.{    [0bas][+sll][-wrd][-utt][+cmp][+fri][+frf]
+Bound:>.>    [0bas][+sll][-wrd][-utt][-cmp][-fri][+frf]
+Bound:>.<    [0bas][+sll][-wrd][-utt][+cmp][+fri][+frf]
+Bound:$>.>   [0bas][+sll][-wrd][-utt][-cmp][-fri][+frf]
+Bound:=.=    [0bas][+sll][-wrd][-utt][-cmp][-fri][-frf]
+Bound:==     [0bas][-sll][-wrd][-utt][-cmp][-fri][-frf]
+Bound:}#.#{  [0bas][+sll][+wrd][-utt][-cmp][+fri][+frf]
+Bound:>#.#{  [0bas][+sll][+wrd][-utt][-cmp][+fri][+frf]
+Bound:>#.#<  [0bas][+sll][+wrd][-utt][-cmp][+fri][+frf]
+Bound:}#.#<  [0bas][+sll][+wrd][-utt][-cmp][+fri][+frf]
+Bound:}##{   [-bas][+sll][+wrd][-utt][-cmp][+fri][+frf] #for resyllabifying
+Bound:>##{   [-bas][+sll][+wrd][-utt][-cmp][+fri][+frf] #for resyllabifying
+Bound:>##<   [-bas][+sll][+wrd][-utt][-cmp][+fri][+frf] #for resyllabifying
+Bound:}##<   [-bas][+sll][+wrd][-utt][-cmp][+fri][+frf] #for resyllabifying
+Bound:}#     [0bas][+sll][+wrd][+utt][-cmp][-fri][+frf]
+Bound:>#     [0bas][+sll][+wrd][+utt][-cmp][-fri][+frf]
+Bound:#<     [0bas][+sll][+wrd][+utt][-cmp][+fri][-frf]
+Bound:#{     [0bas][+sll][+wrd][+utt][-cmp][+fri][-frf]
+
+
+
